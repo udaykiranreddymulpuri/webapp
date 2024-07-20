@@ -1,16 +1,22 @@
+``` Overview``` 
+
 This Spring Boot application is an Assignment Management System that allows users to create, update, and delete assignments. It also supports assignment submissions with validation checks, such as the maximum number of attempts and submission deadlines. The system includes user authentication using basic HTTP authentication with email and password. 
 Technologies Used: Spring Boot,Databases,JPA,bcrypt,AWS SDK,statsD,Packer.
 
-Assignment Management System - Technical Overview
-Build and Run Instructions
+```Assignment Management System - Technical Overview```
+
+``` Build and Run Instructions```
+
 1. Build the Project
     * Execute the command: mvn clean install
 2. Run the Application
     * Execute the command: mvn spring-boot:run
 
-Database Configuration
+``` Database Configuration ```
 * PostgreSQL is configured to run locally on port 5432.
-Application Features
+
+``` Application Features```
+
 * Health Check Endpoint
     * A basic health check endpoint has been implemented to monitor the application's health.
 * Assignment Management Endpoints
@@ -23,21 +29,25 @@ Application Features
     * The application ingests this data and stores it in the database.
     * When a user attempts to create an assignment, the application validates the user against the stored data in the database before allowing the operation.
 
-AWS Integration
+```AWS Integration```
+
 * AWS SDK
     * The AWS SDK is used to interact with Amazon Simple Notification Service (SNS) for publishing messages.
 
-Continuous Integration
+```Continuous Integration```
+
 * GitHub Actions
     * Three GitHub Actions are configured to run for the application upon code commits:
         * Two actions are triggered on pull requests.
         * One action is triggered upon successfully pushing code to the main branch.
 
-AWS Deployment
+```AWS Deployment```
+
 * Packer Configuration
     * A packer directory has been created to manage the creation of AWS AMIs (Amazon Machine Images) with the web application jar file.
 * Systemd Service Configuration
     * A service file has been created for use with systemd, and this file is copied to the AMI.
     * Once the instance is launched, the application will run automatically as a systemd service.
  
- 
+
+* For Infrastructure  as a Code setup, please refer to - https://github.com/udaykiranreddymulpuri/iac-pulumi
