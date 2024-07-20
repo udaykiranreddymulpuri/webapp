@@ -1,4 +1,5 @@
-This Spring Boot application is an Assignment Management System that allows users to create, update, and delete assignments. It also supports assignment submissions with validation checks, such as the maximum number of attempts and submission deadlines. The system includes user authentication using basic HTTP authentication with email and password.   Spring Boot,Databases,JPA,bcrypt,AWS SDK,statsD.
+This Spring Boot application is an Assignment Management System that allows users to create, update, and delete assignments. It also supports assignment submissions with validation checks, such as the maximum number of attempts and submission deadlines. The system includes user authentication using basic HTTP authentication with email and password. 
+Technologies Used: Spring Boot,Databases,JPA,bcrypt,AWS SDK,statsD,Packer.
 
 Assignment Management System - Technical Overview
 Build and Run Instructions
