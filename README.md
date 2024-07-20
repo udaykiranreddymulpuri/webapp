@@ -1,19 +1,38 @@
-First we need to hit mvn clean install 
-need to hit mvn spring-boot:run
-postgressql is running on local 5432 port
-Created the webapp with one basic health check end point and several other endpoints
-In this endpoints user can create the assignment
-user can view the assignment
-user can delete the assignment
-user data and mail address will be taken from /opt with users.csv file and then application will store the data into database 
-when user is trying to create the assignment , the application will check with the user data in db then only it will allow the person to edit
+This Spring Boot application is an Assignment Management System that allows users to create, update, and delete assignments. It also supports assignment submissions with validation checks, such as the maximum number of attempts and submission deadlines. The system includes user authentication using basic HTTP authentication with email and password.   Spring Boot,Databases,JPA,bcrypt,AWS SDK,statsD.
 
-3 github actions will the running for the application when the code is pushed
-2 of them will start running on pull request and other on successfully pushing the code into org branch
-
-created a packer folder where it is used to create the AWS AMI with the webapp jar file 
-created a service file which will be used as systemd file , and it will copied to ami 
-once the instance is up , the application will run automatically
-
-
-testing!!
+Assignment Management System - Technical Overview
+Build and Run Instructions
+1. Build the Project
+    * Execute the command: mvn clean install
+2. Run the Application
+    * Execute the command: mvn spring-boot:run
+Database Configuration
+* PostgreSQL is configured to run locally on port 5432.
+Application Features
+* Health Check Endpoint
+    * A basic health check endpoint has been implemented to monitor the application's health.
+* Assignment Management Endpoints
+    * Create Assignment: Users can create new assignments.
+    * View Assignment: Users can view existing assignments.
+    * Delete Assignment: Users can delete assignments.
+    * Submit Assignment: Users can Submit assignment,the documents will be saved in cloud.
+* User Data Management
+    * User data, including email addresses, is sourced from the users.csv file located in the /opt directory.
+    * The application ingests this data and stores it in the database.
+    * When a user attempts to create an assignment, the application validates the user against the stored data in the database before allowing the operation.
+AWS Integration
+* AWS SDK
+    * The AWS SDK is used to interact with Amazon Simple Notification Service (SNS) for publishing messages.
+Continuous Integration
+* GitHub Actions
+    * Three GitHub Actions are configured to run for the application upon code commits:
+        * Two actions are triggered on pull requests.
+        * One action is triggered upon successfully pushing code to the main branch.
+AWS Deployment
+* Packer Configuration
+    * A packer directory has been created to manage the creation of AWS AMIs (Amazon Machine Images) with the web application jar file.
+* Systemd Service Configuration
+    * A service file has been created for use with systemd, and this file is copied to the AMI.
+    * Once the instance is launched, the application will run automatically as a systemd service.
+ 
+ 
