@@ -7,6 +7,7 @@ Build and Run Instructions
     * Execute the command: mvn clean install
 2. Run the Application
     * Execute the command: mvn spring-boot:run
+
 Database Configuration
 * PostgreSQL is configured to run locally on port 5432.
 Application Features
@@ -21,14 +22,17 @@ Application Features
     * User data, including email addresses, is sourced from the users.csv file located in the /opt directory.
     * The application ingests this data and stores it in the database.
     * When a user attempts to create an assignment, the application validates the user against the stored data in the database before allowing the operation.
+
 AWS Integration
 * AWS SDK
     * The AWS SDK is used to interact with Amazon Simple Notification Service (SNS) for publishing messages.
+
 Continuous Integration
 * GitHub Actions
     * Three GitHub Actions are configured to run for the application upon code commits:
         * Two actions are triggered on pull requests.
         * One action is triggered upon successfully pushing code to the main branch.
+
 AWS Deployment
 * Packer Configuration
     * A packer directory has been created to manage the creation of AWS AMIs (Amazon Machine Images) with the web application jar file.
